@@ -444,11 +444,11 @@ function plot_one_line(esb_type, esb_size) {
     canvas.appendChild(canvas_time_per_epoch);
 
     // Time to accuracy canvas
-    var canvas_time_to_acc = document.createElement('div');
-    canvas_time_to_acc.setAttribute('id', 'canvas_time_to_acc' + esb_type + esb_size);
-    canvas_time_to_acc.setAttribute('class', 'col');
-    canvas_time_to_acc.setAttribute('style', 'width:300px;height:400px;');
-    canvas.appendChild(canvas_time_to_acc);
+    //var canvas_time_to_acc = document.createElement('div');
+    //canvas_time_to_acc.setAttribute('id', 'canvas_time_to_acc' + esb_type + esb_size);
+    //canvas_time_to_acc.setAttribute('class', 'col');
+    //canvas_time_to_acc.setAttribute('style', 'width:300px;height:400px;');
+    //canvas.appendChild(canvas_time_to_acc);
 
     // Plot figures
     plot_error_heatmap_in_div(canvas_error_heatmap.id, esb_type, esb_size);
