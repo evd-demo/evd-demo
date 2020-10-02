@@ -453,7 +453,7 @@ function plot_one_line(esb_type, esb_size) {
     // Plot figures
     plot_error_heatmap_in_div(canvas_error_heatmap.id, esb_type, esb_size);
     plot_time_per_epoch_in_div(canvas_time_per_epoch.id, esb_type, esb_size);
-    plot_time_to_acc_in_div(canvas_time_to_acc.id, esb_type, esb_size);
+    //plot_time_to_acc_in_div(canvas_time_to_acc.id, esb_type, esb_size);
 }
 
 /**
