@@ -58,7 +58,7 @@ function plot_error_heatmap_in_div(canvas_id, esb_type, esb_size) {
         z_values_t.push(new_line);
     }
     var y = [];
-    for (let i = 1; i <= 120; i++) {
+    for (let i = 1; i <= 250; i++) {
         y.push(i);
     }
 
@@ -83,7 +83,6 @@ function plot_error_heatmap_in_div(canvas_id, esb_type, esb_size) {
         }
     ];
     var layout = {
-
         title: 'Comparing Validation Error',
         xaxis: {
             title: 'Width factor|Depth|Parameters (M)',
@@ -94,8 +93,11 @@ function plot_error_heatmap_in_div(canvas_id, esb_type, esb_size) {
         yaxis: {
             title: 'Number of epochs',
             tickmode: 'array',
-            tickvals:[1, 20, 40, 60, 80, 100, 120],
-            ticktext:[1, 20, 40, 60, 80, 100, 120],
+
+            //tickvals:[1, 20, 40, 60, 80, 100, 120, 140, 160, 200, 250],
+            //ticktext:[1, 20, 40, 60, 80, 100, 120, 140, 160, 200, 250],
+            tickvals:[1, 30, 60, 90, 120, 160, 200, 240, 300, 400, 500, 600],
+            ticktext:[1, 30, 60, 90, 120, 160, 200, 240, 300, 400, 500, 600],
         },
 
     };
@@ -466,14 +468,48 @@ function get_indexes() {
     var width = inputObject.width;
     var depth = inputObject.depth;
     var dic_entries = [];
+    var arch = inputObject.network_archeticture; // this should be able to get the network arch (i.e. the one you select)
+    console.log('width is ', width)
+    console.log('depth is ', depth)
+    console.log('arch is ', arch)
     for (let i of width) {
         for (let j of depth) {
-            for (let k of dic_DenseNet_list) {
-                if (k[0] == i && k[1] == j) {
-                    dic_entries.push(k);
-                    break;
+            if(arch == 'resnet'){
+                for (let k of dic_ResNet_list) {
+                    console.log('k is ', k)
+                    if (k[0] == i && k[1] == j) {
+                        dic_entries.push(k);
+                        break;
+                    }
                 }
             }
+            else if (arch == 'DenseNet'){
+                for (let k of dic_DenseNet_list) {
+                    if (k[0] == i && k[1] == j) {
+                        dic_entries.push(k);
+                        break;
+                    }
+                }
+            }
+            if(arch == 'wrn'){
+                for (let k of dic_wrn_list) {
+                    console.log('k is ', k)
+                    if (k[0] == i && k[1] == j) {
+                        dic_entries.push(k);
+                        break;
+                    }
+                }
+            }
+            if(arch == 'vgg'){
+                for (let k of dic_VGG_list) {
+                    console.log('k is ', k)
+                    if (k[0] == i && k[1] == j) {
+                        dic_entries.push(k);
+                        break;
+                    }
+                }
+            }
+
         }
     }
     if (inputObject.sort_by === 'width') {
@@ -483,12 +519,30 @@ function get_indexes() {
     } else if (inputObject.sort_by === 'param') {
         dic_entries.sort(cmp_param);
     }
-    for (let i of dic_entries) {
-        indexes.push(i[3]);
+    if (arch == 'resnet'){
+        for (let i of dic_entries) {
+            indexes.push(i[2]);
+        }
+    }
+    else if (arch == 'DenseNet'){
+        for (let i of dic_entries) {
+            indexes.push(i[3]);
+        }
+    }
+    else if (arch == 'wrn'){
+        for (let i of dic_entries) {
+            indexes.push(i[2]);
+        }
+    }
+    else if (arch == 'vgg'){
+        for (let i of dic_entries) {
+            indexes.push(i[2]);
+        }
     }
 
     console.log("dic entries:", JSON.stringify(dic_entries));
     console.log("indexes:", indexes);
+    console.log('finish get_indexes')
     return indexes;
 }
 

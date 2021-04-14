@@ -2,7 +2,7 @@
 This js file is for operating of WebSQL database.
  */
 
-var db_1 = openDatabase('test.db', '1.0', 'hello web sql!', 2 * 1024 * 1024);
+var db_1 = openDatabase('test.db', '1.0', 'hello web sql!', 4 * 1024 * 1024);
 
 /**
  * Update the web sql database using database definition file

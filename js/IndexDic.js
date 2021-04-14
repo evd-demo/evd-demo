@@ -39,14 +39,64 @@ var dic_FC_list = [];
  * Define the relationship between (width, depth) and number of parameters here
  * For DenseNet
  */
-var dic_ResNet_list = [];
+var dic_ResNet_list = [
+    [16, 26],
+    [16, 38],
+    [16, 50],
+    [16, 62],
+    [24, 26],
+    [24, 38],
+    [24, 50],
+    [24, 62],
+
+    [32, 26],
+    [32, 38],
+    [32, 50],
+    [32, 62],
+    [48, 26],
+    [48, 38],
+    [48, 50],
+    [48, 62]
+
+];
+
+var dic_wrn_list = [
+    [4, 28],
+    [4, 52],
+    [4, 58],
+    [8, 28],
+    [8, 52],
+    [8, 58],
+    [12, 28],
+    [12, 52],
+    [12, 58]
+];
 
 
 /**
  * Define the relationship between (width, depth) and number of parameters here
  * For DenseNet
  */
-var dic_VGG_list = [];
+var dic_VGG_list = [
+    [128, 32],
+    [128, 40],
+    [128, 48],
+    [128, 64],
+    [64, 32],
+    [64, 40],
+    [64, 48],
+    [64, 64],
+
+    [32, 32],
+    [32, 40],
+    [32, 48],
+    [32, 64],
+    [96, 32],
+    [96, 40],
+    [96, 48],
+    [96, 64]
+
+];
 
 
 for (let i in dic_DenseNet_list) {
@@ -60,6 +110,9 @@ for (let i in dic_ResNet_list) {
 }
 for (let i in dic_VGG_list) {
     dic_VGG_list[i].push(i);
+}
+for (let i in dic_wrn_list) {
+    dic_wrn_list[i].push(i);
 }
 
 /**

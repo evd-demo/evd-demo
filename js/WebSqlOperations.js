@@ -38,11 +38,15 @@ function search_dataset(network) {
 
 function search_widths(network, dataset) {
     execute_statement(
-        "select distinct width from param_width_depth " +
+        "select distinct width from param_width_depth "+
         " where net_arch = '" + network + "'" +
         " and dataset = '" + dataset + "'" +
         " order by width asc;",
         function (result_rows) {
+            console.log('Question');
+            console.log(network);
+            console.log(dataset);
+
             print_result(result_rows);
             var result_list = [];
             for (let i in result_rows) {
@@ -54,6 +58,8 @@ function search_widths(network, dataset) {
 
             // Use the result to show dynamically
             display_available_width(res);
+            //display_available_width(result_list);
+
         }
     );
 }
@@ -77,11 +83,12 @@ function search_depths(network, dataset, width) {
                 result_list.push(result_rows[i]["depth"]);
             }
             console.log(result_list);
+            console.log(result_rows);
             var res = JSON.parse(result_list)
             console.log(res);
-
-            // Use the result to show dynamically
             display_available_depth(res);
+            // Use the result to show dynamically
+            //display_available_depth(result_list);
         }
     );
 }
