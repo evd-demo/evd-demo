@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Visulization test">
     <meta name="author" content="">
-    <title>Evd_demo</title>
+    <title>More or Less (Demo)</title>
 
     <style>
         .bd-placeholder-img {
@@ -63,7 +63,10 @@
 
 <!-- Experiment result visualization -->
 <h1 style="text-align: center; font-family: scrap; font-size: 40px" class="navbar-padding"
-    id="result visualization title">Comparing Ensembles of Neural Networks with<br>Single Network Models</h1>
+    id="result visualization title">More or Less: When and How to Build Convolutional Neural Network Ensembles</h1>
+
+<h2 style="text-align: center; font-size: 20px" class="navbar-padding"
+    id="result visualization title">Welcome to the visualization demo! Please select configurations -- network architecture, dataset, ensemble size, and network size -- you would like to visualize. Have a look at the <a href="https://openreview.net/pdf?id=z5Z023VBmDZ" target="_blank"> paper </a> or the <a href="https://awasay.github.io/doc/MoL_poster.pdf" target="_blank"> poster </a> for more details. </h1> <br>
 
 <div id="visulization" class="container">
     <!-- Experiment Set-up -->
@@ -108,12 +111,12 @@
             <div class="input-group">
                 <!--sub-column: Horizontal-->
                 <div class="col" style="text-align: center">
-                    <h6 style="text-align: center" id="horizontal_heading">Horizontal</h6>
+                    <h6 style="text-align: center" id="horizontal_heading">Depth-equivalent</h6>
                     <div id="horizontal_input_column" onchange="update_input_value();"></div>
                 </div>
                 <!--sub-column: Vertical-->
                 <div class="col" style="text-align: center">
-                    <h6 style="text-align: center" id="vertical_heading">Vertical</h6>
+                    <h6 style="text-align: center" id="vertical_heading">Width-equivalent</h6>
                     <div id="vertical_input_column" onchange="update_input_value();"></div>
                 </div>
             </div>
